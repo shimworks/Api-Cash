@@ -1,5 +1,5 @@
 // src/server.js
-
+require('dotenv').config()
 const app = require('./app');
 
 const PORT = 3001;
