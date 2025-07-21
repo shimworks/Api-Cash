@@ -1,30 +1,30 @@
-##### Projeto de API com docker
+# Projeto de API com docker
 
-#### Antes de iniciar o repósitorio
-## Pré requisitos
+## Antes de iniciar o repósitorio
+### Pré requisitos
 Crie um aruivo .env utilizando como base o .env-example
 
-### Instalando o repositorio
+#### Instalando o repositorio
 ````
 npm install
 ````
 
-### Iniciando o repositorio
+#### Iniciando o repositorio
 ````
 docker-compose up -d
 ````
 
-### Outros comandos úteis
-# Desliga o docker e todos seus serviços
+## Outros comandos úteis
+#### Desliga o docker e todos seus serviços
 ````
 docker-compose down
 ````
-# Visualiza logs do container
+#### Visualiza logs do container
 ````
 docker container logs cash_api
 docker container logs database
 ````
-# Acessa o bash do container
+#### Acessa o bash do container
 ````
 docker exec -it cash_api bash
 docker exec -it database bash
@@ -35,7 +35,7 @@ ctrl + C => ctrl + D
 
 
 
-### Rotas
+## Rotas
 ```
 localhost:3001/people
 ```
