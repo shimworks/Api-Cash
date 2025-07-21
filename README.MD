@@ -1,4 +1,8 @@
-##### Projeto de API com docker em andamento
+##### Projeto de API com docker
+
+#### Antes de iniciar o repósitorio
+## Pré requisitos
+Crie um aruivo .env utilizando como base o .env-example
 
 ### Instalando o repositorio
 ````
