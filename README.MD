@@ -25,15 +25,30 @@ docker container logs database
 docker exec -it cash_api bash
 docker exec -it database bash
 
-# para sair do bash
+# Para sair do bash
 ctrl + C => ctrl + D
 ````
 
 
 
 ### Rotas
+```
+localhost:3001/people
+```
 ![POST](/Public/POST.png)
+```
+localhost:3001/people
+```
 ![GETALL](/Public/GETALL.png)
+```
+localhost:3001/people/1
+```
 ![GETONE](/Public/GETONE.png)
+```
+localhost:3001/people/1
+```
 ![PUT](/Public/PUT.png)
+```
+localhost:3001/people/1
+```
 ![DELETE](/Public/DELETE.png)
