@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "mocha tests/**/people.test.js --exit"
+    "test": "mocha tests/**/people.test.js --exit",
+    "dockerup": "docker-compose up -d",
+    "dockerdown": "docker-compose down"
   },
   "keywords": [],
   "author": "",

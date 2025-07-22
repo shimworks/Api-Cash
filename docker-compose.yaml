@@ -19,14 +19,14 @@ services:
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
       # na notação porta_de_fora:porta_de_dentro
-      - 3001:3001
+      - ${API_PORT}:3001
     environment:
       # Aqui setamos nossas variáveis de ambiente - não se preocupe, mais para frente, ainda nesse dia, temos
       # uma seção inteira destinada a explicá-las!
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_HOST: database
-      MYSQL_PORT: 3306
+      DOCKER_MYSQL_HOST: ${DOCKER_MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
     # Informa ao docker, para que o container node seja iniciado após o container database
     depends_on:
       database:
@@ -34,15 +34,15 @@ services:
   database:
     image: mysql:8.0.29
     platform: linux/amd64
-    container_name: database
+    container_name: ${DOCKER_MYSQL_HOST}
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD} # variável de ambiente do arquivo .env
-      MYSQL_DATABASE: ${MYSQL_DATABASE_NAME} # variável de ambiente do arquivo .env
+      MYSQL_DATABASE: cashdb
     healthcheck:
       # Deve aguardar o banco ficar operacional
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 10s
+      timeout: 5s
       retries: 5
     ports:
       - ${MYSQL_PORT}:3306
