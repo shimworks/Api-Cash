@@ -26,7 +26,10 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       DOCKER_MYSQL_HOST: ${DOCKER_MYSQL_HOST}
-      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_DATABASE_NAME: cashdb
+      MYSQL_WAIT_FOR_CONNECTIONS: ${MYSQL_WAIT_FOR_CONNECTIONS}
+      MYSQL_CONNECTION_LIMIT: ${MYSQL_CONNECTION_LIMIT}
+      MYSQL_QUEUE_LIMIT: ${MYSQL_QUEUE_LIMIT}
     # Informa ao docker, para que o container node seja iniciado após o container database
     depends_on:
       database:
@@ -37,7 +40,9 @@ services:
     container_name: ${DOCKER_MYSQL_HOST}
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD} # variável de ambiente do arquivo .env
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # variável de ambiente do arquivo .env
       MYSQL_DATABASE: cashdb
     healthcheck:
       # Deve aguardar o banco ficar operacional
